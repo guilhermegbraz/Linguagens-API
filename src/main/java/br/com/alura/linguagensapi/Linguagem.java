@@ -1,14 +1,22 @@
 package br.com.alura.linguagensapi;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "principaisLinguagens")
 public class Linguagem {
 
-    private final String title;
-    private final String image;
+    @Id
+    private String id;
+    private  String title;
+    private  String image;
     private int ranking;
 
-    public Linguagem(String title, String urlImage, int ranking) {
+    public Linguagem() {}
+
+    public Linguagem(String title, String image, int ranking) {
         this.title = title;
-        this.image = urlImage;
+        this.image = image;
         this.ranking = ranking;
     }
 
@@ -20,7 +28,11 @@ public class Linguagem {
         return title;
     }
 
-    public String getUrlImage() {
+    public String getImage() {
         return image;
+    }
+
+    public String getId() {
+        return id;
     }
 }
